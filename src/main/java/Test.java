@@ -9,7 +9,7 @@ public class Test {
         int turn;
         int guess;
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 5040; i++) {
             turn = 0;
             answer = 0;
             player = new Player();
@@ -38,7 +38,7 @@ public class Test {
             average += i * turns[i];
         }
 
-        average /= 1000;
+        average /= 5040;
 
         System.out.println("Average turns: " + average);
     }

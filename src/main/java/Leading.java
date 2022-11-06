@@ -1,8 +1,10 @@
 public class Leading {
+    private static int game = 0;
     private final int num;
 
     public Leading() {
-        num = Utils.variants.get(Utils.getRandomIntegerBetweenRange(0, 5039));
+        num = Utils.variants.get(game);
+        game++;
     }
 
     public int answer(int guess) {
