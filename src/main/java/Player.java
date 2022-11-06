@@ -42,7 +42,6 @@ public class Player {
         }
 
         if (guess == lastGuess) {
-            Test.locks++;
             guess = variants.get(0);
         }
 
