@@ -31,5 +31,15 @@ public class Test {
         for (int i = 0; i < 100; i++) {
             System.out.println(i + "turns: " + turns[i] + " games");
         }
+
+        double average = 0.0;
+
+        for (int i = 0; i < 100; i++) {
+            average += i * turns[i];
+        }
+
+        average /= 1000;
+
+        System.out.println("Average turns: " + average);
     }
 }
