@@ -6,7 +6,35 @@ public class Player {
     private int lastAnswer;
 
     public int guess() {
-        int guess = variants.get(0);
+        int[][] statistic = new int[4][10];
+        int guess = 0;
+        int frequency = 0;
+        int maxFrequency = 0;
+
+        for (Integer variant : variants) {
+            int a = variant;
+
+            for (int i = 0; i < 4; i++) {
+                statistic[i][(int) (a / Math.pow(10, 3 - i))]++;
+                a = (int) (a % Math.pow(10, 3 - i));
+            }
+        }
+
+        for (Integer variant : variants) {
+            int a = variant;
+            frequency = 0;
+
+            for (int i = 0; i < 4; i++) {
+                frequency += statistic[i][(int) (a / Math.pow(10, 3 - i))]++;
+                a = (int) (a % Math.pow(10, 3 - i));
+            }
+
+            if (frequency > maxFrequency) {
+                maxFrequency = frequency;
+                guess = variant;
+            }
+        }
+
         lastGuess = guess;
         return guess;
     }
